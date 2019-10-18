@@ -14,3 +14,9 @@ Press `Ctrl+Shift+R` to launch the tool.
 
 ## Shelf
 Drag and drop the install_shelf.mel file into the Maya viewport.
+
+# License
+[MIT](https://en.wikipedia.org/wiki/MIT_License)
+
+# Author
+tm8r (https://github.com/tm8r)
