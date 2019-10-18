@@ -1,0 +1,12 @@
+/* FBX Importer install script */
+
+global proc installHotkeyTm8rRecentFilesPlus(){
+    string $whatIs = `whatIs installHotkeyTm8rRecentFilesPlus`;
+    string $tmpPath = `match ": (.*)" $whatIs`;
+    string $melPath = `substitute ": " $tmpPath ""`;
+    string $pythonPath = `substitute "install_hotkey.mel" $melPath "install_hotkey.py"`;
+    print($pythonPath);
+    python("import imp;imp.load_source('_installHotkeyTm8rRecentFilesPlus', '"+$pythonPath+"')");
+}
+
+installHotkeyTm8rRecentFilesPlus();

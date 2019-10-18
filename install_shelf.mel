@@ -1,0 +1,12 @@
+/* FBX Importer install script */
+
+global proc installShelfTm8rRecentFilesPlus(){
+    string $whatIs = `whatIs installShelfTm8rRecentFilesPlus`;
+    string $tmpPath = `match ": (.*)" $whatIs`;
+    string $melPath = `substitute ": " $tmpPath ""`;
+    string $pythonPath = `substitute "install_shelf.mel" $melPath "install_shelf.py"`;
+    print($pythonPath);
+    python("import imp;imp.load_source('_installShelfTm8rRecentFilesPlus', '"+$pythonPath+"')");
+}
+
+installShelfTm8rRecentFilesPlus();
