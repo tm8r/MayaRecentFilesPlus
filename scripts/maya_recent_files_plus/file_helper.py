@@ -41,6 +41,9 @@ def open_file(file_path, file_type):
         file_path (unicode):file path
         file_type (unicode): file type
     """
+    ignore_confirm = _is_alt_pressed()
+    if not ignore_confirm and not save_changes():
+        return
     cmds.file(force=True, new=True)
     mel.eval('openRecentFile("{0}", "{1}");'.format(file_path, file_type))
 
@@ -71,6 +74,27 @@ def open_file_specifying_mode(path, file_type, file_open_mode, parent=None, *arg
         open_file(path, file_type)
     else:
         _include_file_using_namespace(path, file_open_mode, parent)
+
+
+def save_changes():
+    u"""save scene
+
+    Returns:
+        bool: scene save state
+    """
+    res = mel.eval('saveChanges("");')
+    if res == 0:
+        return False
+    return True
+
+
+def _is_alt_pressed():
+    u"""return Alt key state
+
+    Returns:
+        bool: Alt key state
+    """
+    return (cmds.getModifiers() & 8) > 0
 
 
 def _include_file_using_namespace(path, file_open_mode, parent=None):
