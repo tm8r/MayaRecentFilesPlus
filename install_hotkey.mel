@@ -1,4 +1,4 @@
-/* FBX Importer install script */
+/* RecentFilesPlus install script */
 
 global proc installHotkeyTm8rRecentFilesPlus(){
     string $whatIs = `whatIs installHotkeyTm8rRecentFilesPlus`;

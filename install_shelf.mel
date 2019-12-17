@@ -1,4 +1,4 @@
-/* FBX Importer install script */
+/* RecentFilesPlus install script */
 
 global proc installShelfTm8rRecentFilesPlus(){
     string $whatIs = `whatIs installShelfTm8rRecentFilesPlus`;
